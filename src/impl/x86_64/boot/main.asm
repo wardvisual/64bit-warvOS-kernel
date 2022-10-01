@@ -33,7 +33,12 @@ check_cpuid:
     push exc 
     popfd
     cmp eax, ecx
-
+    je .no_cupid
+    ret
+.no_cupid:
+    mov al, "C"
+    jmp error
+    
 error:
     ; print "ERR, :X " where X is the error code
     mov dword [0xb8000], 0x4f524f45
