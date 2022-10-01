@@ -21,6 +21,19 @@ check_multiboot:
     mov al, "M"
     jmp error
 
+check_cpuid:
+    pushfd
+    pop eax
+    mov ecx, eax
+    xor eax, 1 << 21
+    push eax
+    popfd
+    pushfd
+    pop eax
+    push exc 
+    popfd
+    cmp eax, ecx
+
 error:
     ; print "ERR, :X " where X is the error code
     mov dword [0xb8000], 0x4f524f45
