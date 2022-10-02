@@ -9,6 +9,9 @@ start:
     call check_cpuid
     call check_long_mode
 
+    call setup_page_tables
+    call enable_paging
+
     ; print `OK`
     mov dword [0xb8000], 0x2f4b2f4f
     hlt 
@@ -55,6 +58,8 @@ check_long_mode:
 .no_long_mode:
     mov al, "L"
     jmp error
+
+setup_page_tables:
     
 error:
     ; print "ERR, :X " where X is the error code
@@ -64,6 +69,15 @@ error:
     mov byte [0xb800a], al
     hlt
 section .bss
+align 4096
+page_tablel_l4:
+    resb 4096
+page_tablel_l3:
+    resb 4096
+
+page_tablel_l2:
+    resb 4096
+
 stack_bottom:
     resb 4096 * 4
 stack_stop:
