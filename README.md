@@ -9,7 +9,7 @@
 
   <h3 align="center">64bit-warvOS-kernel</h3>
 
-  <p align="center">A 64-bit x86 operating system kernel built in Assembly and C with multiboot2 compliance indicates that the kernel can run on any computer that is 64-bit and x86 compatible, as well as being able to boot from a multiboot2 compliant bootloader.</p>
+  <p align="center">A 64-bit x86 operating system kernel written in C and Assembly with multiboot2 compliance indicates that the kernel can run on any computer that is 64-bit and x86 compatible, as well as being able to boot from a multiboot2 compliant bootloader.</p>
   <p>THIS OS IS UNDER DEVELOPMENT</p>
     <br />
     <br />
